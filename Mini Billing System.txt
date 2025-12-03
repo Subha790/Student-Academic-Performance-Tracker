@@ -1,0 +1,30 @@
+#include <stdio.h>
+int main()
+{
+    int quantity[5];
+    float prices[5]={50,20,150,1000,200};
+    float amount[5];
+    float subtotal=0,discount=0,gst,total;
+    printf("Enter quantities for 5 items:\n");
+    for(int i=0;i<5;i++) 
+    {
+        printf("Item %d (₹%.2f):",i+1,prices[i]);
+        scanf("%d",&quantity[i]);
+        amount[i]=quantity[i]*prices[i];
+        subtotal=subtotal+amount[i];
+    }
+    if(subtotal>1000)
+        discount=subtotal*0.10;
+    else if(subtotal>500)
+        discount=subtotal*0.05;
+    else
+        discount=0;
+    gst=(subtotal-discount)*0.05;
+    total=subtotal-discount+gst;
+    printf("\nBILL\n");
+    printf("Subtotal:%.2f\n",subtotal);
+    printf("Discount:%.2f\n",discount);
+    printf("GST(5%%):%.2f\n",gst);
+    printf("Total:%.2f\n",total);
+    return 0;
+}
