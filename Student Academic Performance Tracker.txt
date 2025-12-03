@@ -1,0 +1,49 @@
+#include <stdio.h>
+int main()
+{
+    int i,marks,total=0;
+    printf("Enter no.of marks:");
+    float percentage;
+    int count90=0,count75_90=0,count50_75=0,count50=0;
+    printf("Enter marks of 6 subjects:\n");
+    for(i=0;i<6;i++)
+    {
+        printf("Subject=%d");
+        scanf("%d",&marks);
+        if(marks>90)
+        count90++;
+        else if(marks>=75)
+        count75_90++;
+        else if(marks>=50)
+        count50_75++;
+        else
+        count50++;
+        total=total+marks;
+    }
+    percentage=total/6.0;
+    
+    char performance;
+    if(percentage>=90)
+    printf("Excellent",performance);
+    else if(percentage>=75)
+    printf("Very good",performance);
+    else if(percentage>=60)
+    printf("Good",performance);
+    else if(percentage>=50)
+    printf("Average",performance);
+    else
+    printf("Needs improvement");
+    
+    printf("\n Student performance report:\n");
+    printf("Total marks=%d\n",total);
+    printf("Percentage=%.2f\n",percentage);
+    printf("Overall performance",performance);
+    
+    printf("\n summary\n");
+    printf("Marks>90:%dsubjects\n",count90);
+    printf("Marks 75-90:%dsubjects\n",count75_90);
+    printf("Marks 50-75:%dsubjects\n",count50_75);
+    printf("Marks<50:%dsubjects\n",count50);
+    printf("\n");
+    return 0;
+}
